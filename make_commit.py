@@ -7,8 +7,8 @@ def run_command(command):
     subprocess.run(command, check=True, shell=True)
 
 def main():
-    # Generate random number of commits (3 to 8) to ensure darker green squares
-    num_commits = random.randint(3, 8)
+    # Generate random number of commits (12 to 25) to ensure darkest green squares
+    num_commits = random.randint(12, 25)
     log_file = "activity.log"
     
     print(f"Generating {num_commits} commits for today...")
