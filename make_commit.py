@@ -1,18 +1,32 @@
 import os
 import datetime
 import random
+import subprocess
+
+def run_command(command):
+    subprocess.run(command, check=True, shell=True)
 
 def main():
-    # Only commit 90% of the time to look more natural? 
-    # Or 100% to ensure green square. Let's do 100% as requested.
-    
-    timestamp = datetime.datetime.now().isoformat()
+    # Generate random number of commits (3 to 8) to ensure darker green squares
+    num_commits = random.randint(3, 8)
     log_file = "activity.log"
     
-    with open(log_file, "a") as f:
-        f.write(f"Commit made at {timestamp}\n")
+    print(f"Generating {num_commits} commits for today...")
+
+    for i in range(num_commits):
+        timestamp = datetime.datetime.now().isoformat()
+        
+        with open(log_file, "a") as f:
+            f.write(f"Commit {i+1} at {timestamp}\n")
+        
+        # Stage and commit immediately after each write
+        try:
+            run_command(f"git add {log_file}")
+            run_command(f'git commit -m "Auto commit {i+1}/{num_commits}"')
+        except subprocess.CalledProcessError as e:
+            print(f"Error making commit: {e}")
     
-    print(f"Updated {log_file} at {timestamp}")
+    print(f"Finished. Created {num_commits} commits.")
 
 if __name__ == "__main__":
     main()
