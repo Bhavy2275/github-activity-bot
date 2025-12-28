@@ -8,7 +8,7 @@ def run_command(command):
 
 def main():
     # Generate random number of commits (12 to 25) to ensure darkest green squares
-    num_commits = random.randint(12, 25)
+    num_commits = random.randint(8, 25)
     log_file = "activity.log"
     
     print(f"Generating {num_commits} commits for today...")
