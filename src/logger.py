@@ -17,3 +17,8 @@ def format_timestamp(ts: float, fmt: str = "%Y-%m-%d %H:%M:%S") -> str:
     from datetime import datetime
     return datetime.fromtimestamp(ts).strftime(fmt)
 
+
+def sanitize_input(user_input: str) -> str:
+    """Removes potentially dangerous characters from input."""
+    return user_input.replace("<", "&lt;").replace(">", "&gt;")
+
