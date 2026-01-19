@@ -1,6 +1,7 @@
 # data_processor.py module
 
 
+
 def calculate_hash(data: str) -> str:
     """Calculates a simple hash of the input string."""
     import hashlib
