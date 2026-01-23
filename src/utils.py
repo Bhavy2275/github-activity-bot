@@ -14,6 +14,7 @@ def format_timestamp(ts: float, fmt: str = "%Y-%m-%d %H:%M:%S") -> str:
     return datetime.fromtimestamp(ts).strftime(fmt)
 
 
+
 def load_json_config(filepath: str) -> dict:
     """Loads configuration from a JSON file."""
     import json
