@@ -12,3 +12,5 @@ def load_json_config(filepath: str) -> dict:
     except FileNotFoundError:
         return {}
 
+
+# TODO: Review implementation logic for 2026-01-24
