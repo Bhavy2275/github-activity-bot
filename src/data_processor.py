@@ -22,3 +22,9 @@ def retry_operation(func, retries=3):
                 print(f"Retry {i+1} failed: {e}")
     return wrapper
 
+
+def format_timestamp(ts: float, fmt: str = "%Y-%m-%d %H:%M:%S") -> str:
+    """Formats a timestamp into a human-readable string."""
+    from datetime import datetime
+    return datetime.fromtimestamp(ts).strftime(fmt)
+
