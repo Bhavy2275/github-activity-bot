@@ -1,6 +1,7 @@
 # logger.py module
 
 
+
 def retry_operation(func, retries=3):
     """Decorator to retry a function multiple times on failure."""
     def wrapper(*args, **kwargs):
